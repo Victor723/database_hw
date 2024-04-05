@@ -73,6 +73,22 @@ if __name__ == '__main__':
             .add('qty', 'integer'))\
         .load(dir_in_sales)
     
+
+
+    # def debug_stream_sales(stream_sales):
+    #     return stream_sales \
+    #         .writeStream \
+    #         .outputMode("append") \
+    #         .format("console") \
+    #         .option("truncate", False) \
+    #         .option("numRows", 20) \
+    #         .start()
+
+    # spark = SparkSession.builder.appName("Streaming Sales").getOrCreate()
+
+    # debug_query = debug_stream_sales(stream_sales)
+
+
     ######################################################################
     query = load_module(f'{args.part}_query')
     q, output_mode = query.query(stream_sales, stream_prices)
